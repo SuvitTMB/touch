@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <link href="./img/favicom.ico" rel="icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <link href='css/vdo.css' rel="stylesheet" type="text/css">
+  <link href='css/app.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <link href='css/flipcard.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <style type="text/css">
+    .w3-container, .w3-panel {
+      padding:0px;
+    }
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #fff;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#myPage" onclick="location.href='index.html'" style="font-size: 12px;">LINE Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+  <section id="viewpage">
+    <div class="container">
+      <center>
+        <div style="max-width:400px;">
+          <div class="btn-t33" style="margin-top:70px;">ตอบคำถามประจำวัน</div>
+          <div class="NameLine" id="ToDayDate"></div>
+          <!--<div id="QuizDetail" style="display:none;">-->
+            <div class="text-team" style="margin-top:8px;text-align: left; font-weight: 600; color:#000;">ผู้เข้าร่วมกิจกรรม จะต้องเข้ามาทำการตอบคำถามประจำวัน ซึ่งเป็นคำถามที่เกี่ยวกับ <font color="#0056ff">ttb touch ใหม่</font> เพื่อเก็บสะสมคะแนนตลอดช่วงเวลาของการแข่งขัน หากไม่ได้เข้ามาแข่งขันในวันนั้นจะไม่สามารถทำการแข่งขันย้อนหลังได้น้า</div>
+            <div class="clr"></div>
+          <!--</div>-->
+          <div id="Loading" style="display:block;"><img src="./img/load2.gif" style="padding-top:0px;width:90%;">
+            <div style="margin:-20px auto 30px auto; color:#000;">. . . L o a d i n g . . .</div>
+          </div>
+
+          <div id="QuizComplete" style="display:none;margin-top:10px;">
+            <div><img src='./img/endgame.gif' style="width:100%;"></div>
+            <div class="text-team" style="margin:20px auto 0px auto;" id="ShowPointToDay"></div>
+          </div>
+          <div id="DiaplayBox" style="display: none;">
+            <div id="BoxGame"></div>
+            <div class="clr"></div>
+            <div class="text-team" style="margin-top:8px;">คลิกที่ภาพเพื่อสุ่มเลือกคำถามประจำวัน</div>
+            <div class="clr"></div>
+          </div>
+          <div class="btn-t2" onclick="location.href='game4.html'">คำถามประจำวัน</div>
+          <div class="btn-t3" onclick="location.href='home.html'">กลับหน้าหลัก</div>
+          <div class="clr" style="height: 30px;"></div>
+        </div>
+      </center>
+    </div> 
+  </section>
+
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4">
+      <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+          <div class="header-line" style="margin-top:10px;color:#0056ff;margin-bottom: 20px;">คลิกเลือกภาพ ... ตามหาคะแนน</div>
+          <div><img src="./img/openpage.png" width="120px"></div>
+          <div style="padding:20px;">ให้คลิกเลือกภาพวันละ 1 ครั้งน้า</div>
+          <div class="btn-t2" onclick="CloseAll()">ปิดหน้าต่าง</div>
+        </center>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+  <div id="id02" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4">
+      <div class="w3-container" style="min-height:300px;width:100%;text-align:center;">
+          <center><div class="border-timer noshow" id="countdowntimer"></div>
+          <div id="ShowStory"></div>
+        </center>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+  <div id="id03" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4">
+      <center>
+        <div style="margin-top:30px;background:#002d63;padding:20px;border-top-left-radius: 18px;border-top-right-radius: 18px;">
+          <!--<div class="header-line" style="padding:15px 0px;text-align: center;color:#f68b1f;">คำถาม Main Bank</div>-->
+          <div id="DisplayTimer"></div>
+          <div id="DisplayQuestion"></div>
+        </div>
+        <div class="clr"></div>
+        <div id="DisplayChoice" style="color:#fff;margin-top:30px;"></div>
+      </center>
+    </div>
+    <div style="height: 30px;"></div>
+  </div>
+
+  <div id="id04" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4">
+      <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+          <div id="ShowEndPoint"></div>
+          <div class="btn-t1" onclick="CloseAll()">ปิดหน้าต่าง</div>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/quizgame.js"></script>
+
+</body>
+</html>

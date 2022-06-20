@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <link href="./img/favicom.ico" rel="icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <!--<link href='css/add.css' rel="stylesheet" type="text/css">-->
+  <link href='css/vdo.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <link rel='stylesheet' href='./css/emoji.css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <style type="text/css">
+    .w3-container, .w3-panel {
+      padding:0px;
+    }
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #fff;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#myPage" onclick="location.href='index.html'" style="font-size: 12px;">LINE Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" style="margin-top:50px;">
+    <div><img src="./img/survey.jpg" style="width:100%;max-height: 300px;"></div>
+    <div class="container" style="max-width: 450px;padding:10px;">
+    <center>
+      <div class="btn-t33" style="margin-top:20px;margin-bottom: 20px;">แบบสำรวจการใช้งานแอปธนาคาร</div>
+      <div class="text-team" style="text-align: left;">ก่อนเริ่มกิจกรรมแฟนพันธุ์แท้ทัช เราอยากจะทราบถึงพฤติกรรมการใช้งานของผู้เข้าร่วมกิจกรรมกันก่อนว่า มีการใช้งานแอปธนาคารกันอย่างไร (การตอบคำถามนี้เป็นเพียงการสำรวจการใช้งาน ไม่มีวัตถุประสงค์อื่น)</div>
+<!--
+      <div class="rating__list">
+        <div class="rating__item">
+          <div><img src="./img/1f620.png" width="40px;"></div>
+          <div class="rating_text"><font color="#000000">เลือก 1</font><br>แย่มาก</div>
+        </div>
+        <div class="rating__item">
+          <div><img src="./img/1f61e.png" width="40px;"></div>
+          <div class="rating_text"><font color="#000000">เลือก 2</font><br>แย่</div>
+        </div>
+        <div class="rating__item">
+          <div><img src="./img/1f611.png" width="40px;"></div>
+          <div class="rating_text"><font color="#000000">เลือก 3</font><br>ปานกลาง</div>
+        </div>
+        <div class="rating__item">
+          <div><img src="./img/1f600.png" width="40px;"></div>
+          <div class="rating_text"><font color="#000000">เลือก 4</font><br>ดี</div>
+        </div>
+        <div class="rating__item">
+          <div><img src="./img/1f929.png" width="40px;"></div>
+          <div class="rating_text"><font color="#000000">เลือก 5</font><br>ดีมาก</div>
+        </div>
+      </div>
+-->
+    </center>
+  </main>
+
+
+  <section>
+    <center>
+    <div class="container" style="max-width: 450px;margin:10px;">
+      <div>
+        <div class="form-group">
+          <div class="text-select">1. คุณใช้แอปธนาคารใดเป็นหลักในการซื้อสินค้าและบริการ?</div>
+          <select id="Q1" name="Learning-goals" class="form-control">
+            <option disabled selected value>เลือกแอปธนาคารหลักของคุณ</option>
+            <option value="KBank">KBank</option>
+            <option value="SCB Bank">SCB Bank</option>
+            <option value="KTB Bank">KTB Bank</option>
+            <option value="BAY Bank">BAY Bank</option>
+            <option value="TTB Bank">TTB Bank</option>
+            <option value="Other">อื่น ๆ</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <div class="text-select">2. โปรดระบุเหตุผลในการเลือกใช้บัตรหลักในการซื้อสินค้าและบริการ</div>
+          <input id="Q2" class="form-control" type="text" name="age" placeholder="เหตุผลที่เลือกเป็นบัตรหลัก">
+        </div>
+
+        <div class="form-group">
+          <div class="text-select">3. คุณใช้แอป ttb touch ใหม่แล้วหรือยัง?</div>
+          <select id="Q3" name="Learning-goals" class="form-control">
+            <option disabled selected value>เลือกรายการ</option>
+            <option value="มีแล้วซิ">มีแล้วซิ</option>
+            <option value="ยังไม่มีนะ">ยังไม่มีนะ</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <div class="text-select">4. คุณใช้งานแอป ttb touch ในด้านไหนมากที่สุด?</div>
+          <select id="Q4" name="Learning-goals" class="form-control">
+            <option disabled selected value>เลือกรายการ</option>
+            <option value="ใช้กดเงินสดโดยไม่ใช้บัตร">ใช้กดเงินสดโดยไม่ใช้บัตร</option>
+            <option value="ใช้สแกน QR Code เพื่อชำระค่าสินค้า">ใช้สแกน QR Code เพื่อชำระค่าสินค้า</option>
+            <option value="ใช้จ่ายค่าสาธารณูปโภค">ใช้จ่ายค่าสาธารณูปโภค</option>
+            <option value="ใช้ชำระบัตรเครดิต">ใช้ชำระบัตรเครดิต</option>
+            <option value="ใช้โอนเงินไปธนาคารอื่น">ใช้โอนเงินไปธนาคารอื่น</option>
+            <option value="ใช้ซื้อกองทุน/ประกัน ผ่านแอป">ใช้ซื้อกองทุน/ประกัน ผ่านแอป</option>
+            <option value="ใช้ชำระสินเชื่อธนาคาร">ใช้ชำระสินเชื่อธนาคาร</option>
+          </select>
+        </div>
+
+
+
+        <center>
+          <button class="btn-t1" onclick="SubmitSurvey()" id="SubmitApp" style="margin-top:15px;">บันทึกรายการ</button>
+        </center>
+<!--
+        <div class="form-group">
+          <p>คุณใช้แอปธนาคารใดเป็นหลักในการซื้อสินค้าและบริการ?</p>
+          <select id="dropdown" name="Learning-goals" class="form-control">
+            <option disabled selected value>เลือกแอปธนาคารหลักของคุณ</option>
+            <option value="KBank">KBank</option>
+            <option value="SCB">SCB Bank</option>
+            <option value="BTB">KTB Bank</option>
+            <option value="BAY">BAY Bank</option>
+            <option value="TTB">TTB Bank</option>
+            <option value="Other">อื่น ๆ</option>
+          </select>
+        </div>
+-->
+      </div>
+
+    </div>
+    </center>
+  </section>
+<!--
+        <center>
+          <div id="DisplayRatio"></div>
+          <div class="text-3">คะแนนประเมินผลของคุณ</div>
+        </center>
+        <table class="table" style="margin-top:15px;">
+          <tbody>
+            <tr>
+              <td class="td-padding" style="width:70%;line-height: 1.3;"><font color="#f68b1f">ข้อที่ 1</font><br><b>คุณรู้จักการบริหารความหลากหลายในการทำงานร่วมกันด้วยหลัก DISC ดียิ่งขึ้น?</b>
+                <div id="Memo1" style="display: none;">
+                  <textarea placeholder="มีอะไรเพิ่มเติม บอกเราได้นะ" class="box-poll" id="feedback1"></textarea>
+                </div>
+              </td>
+              <td class="td-center td-padding" style="text-align:center;"><span id="t1_pocet">0</span></td>
+              <td class="td-right" style="width:20%;text-align: center;">
+                <button class="btn" id="t1_minus" onclick="calculate(t1,'minus')">-</button>
+                <button class="btn" id="t1_plus" onclick="calculate(t1,'plus')">+</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-padding" style="line-height: 1.3;"><font color="#f68b1f">ข้อที่ 2</font><br><b>กิจกรรม สร้างพลังสร้างทีม ช่วยให้คุณทำงานเป็นทีมมากยิ่งขึ้น?</b>
+                <div id="Memo2" style="display: none;">
+                  <textarea placeholder="มีอะไรเพิ่มเติม บอกเราได้นะ" class="box-poll" id="feedback2"></textarea>
+                </div>
+              </td>
+              <td class="td-center td-padding" style="text-align:center;"><span id="t2_pocet">0</span></td>
+              <td class="td-right" style="text-align: center;">
+                <button class="btn" id="t2_minus" onclick="calculate(t2,'minus')">-</button>
+                <button class="btn" id="t2_plus" onclick="calculate(t2,'plus')">+</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-padding" style="line-height: 1.3;"><font color="#f68b1f">ข้อที่ 3</font><br><b>คุณทราบถึง RSOC s Direction & 2nd Half-Key Priorities.?</b>
+                <div id="Memo3" style="display: none;">
+                  <textarea placeholder="มีอะไรเพิ่มเติม บอกเราได้นะ" class="box-poll" id="feedback3"></textarea>
+                </div>
+              </td>
+              <td class="td-center td-padding" style="text-align:center;"><span id="t3_pocet">0</span></td>
+              <td class="td-right" style="text-align: center;">
+                <button class="btn" id="t3_minus" onclick="calculate(t3,'minus')">-</button>
+                <button class="btn" id="t3_plus" onclick="calculate(t3,'plus')">+</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-padding" style="line-height: 1.3;"><font color="#f68b1f">ข้อที่ 4</font><br><b>คุณทราบถึง OKRs, Key Priorities and team structure?</b>
+                <div id="Memo4" style="display: none;">
+                  <textarea placeholder="มีอะไรเพิ่มเติม บอกเราได้นะ" class="box-poll" id="feedback4"></textarea>
+                </div>
+              </td>
+              <td class="td-center td-padding" style="text-align:center;"><span id="t4_pocet">0</span></td>
+              <td class="td-right" style="text-align: center;">
+                <button class="btn" id="t4_minus" onclick="calculate(t4,'minus')">-</button>
+                <button class="btn" id="t4_plus" onclick="calculate(t4,'plus')">+</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-padding" style="line-height: 1.3;"><font color="#f68b1f">ข้อที่ 5</font><br><b>คุณพอใจกับสถานที่ อาหาร และความพร้อมในการการจัดงานมากน้อยเพียงใด?</b>
+                <div id="Memo5" style="display: none;">
+                  <textarea placeholder="มีอะไรเพิ่มเติม บอกเราได้นะ" class="box-poll" id="feedback5"></textarea>
+                </div>
+              </td>
+              <td class="td-center td-padding" style="text-align:center;"><span id="t5_pocet">0</span></td>
+              <td class="text-right" style="text-align: center;">
+                <button class="btn" id="t5_minus" onclick="calculate(t5,'minus')">-</button>
+                <button class="btn" id="t5_plus" onclick="calculate(t5,'plus')">+</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-padding" style="line-height: 1.3;">ข้อที่ 6<br>จะแนะนำเพื่อนหรือคนรู้จักให้มาทำงานที่ธนาคารหรือไม่?
+                <div id="Memo6" style="display: none;">
+                  <textarea placeholder="xxx?" class="box-poll" id="feedback6"></textarea>
+                </div>
+              </td>
+              <td class="td-center td-padding" style="text-align:center;"><span id="t6_pocet">0</span></td>
+              <td class="text-right" style="text-align: center;">
+                <button class="btn" id="t6_minus" onclick="calculate(t6,'minus')">-</button>
+                <button class="btn" id="t6_plus" onclick="calculate(t6,'plus')">+</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="td-padding" style="line-height: 1.3;">ข้อที่ 7<br>คุณรู้สึกว่าผู้บริหารเอาใจใส่ดูแลคุณมากน้อยเพียงใด?
+                <div id="Memo7" style="display: none;">
+                  <textarea placeholder="xxx?" class="box-poll" id="feedback7"></textarea>
+                </div>
+              </td>
+              <td class="td-center td-padding" style="text-align:center;"><span id="t7_pocet">0</span></td>
+              <td class="text-right" style="text-align: center;">
+                <button class="btn" id="t7_minus" onclick="calculate(t7,'minus')">-</button>
+                <button class="btn" id="t7_plus" onclick="calculate(t7,'plus')">+</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-padding" style="line-height: 1.3;">ข้อที่ 8<br>รู้สึกภูมิใจที่ได้ทำงานกับธนาคารมากน้อยเพียงใด?
+                <div id="Memo8" style="display: none;">
+                  <textarea placeholder="xxx?" class="box-poll" id="feedback8"></textarea>
+                </div>
+              </td>
+              <td class="td-center td-padding" style="text-align:center;"><span id="t8_pocet">0</span></td>
+              <td class="text-right" style="text-align: center;">
+                <button class="btn" id="t8_minus" onclick="calculate(t8,'minus')">-</button>
+                <button class="btn" id="t8_plus" onclick="calculate(t8,'plus')">+</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-padding" colspan="3" style="line-height: 1.3;"><font color="#f68b1f">ข้อที่ 6</font><br><b>ข้อคิดเห็น/ข้อเสนอแนะเพิ่มเติม (ถ้ามี)</b>
+                <div id="Memo9" style="display: block;">
+                  <textarea placeholder="ข้อคิดเห็น/ข้อเสนอแนะเพิ่มเติม?" class="box-poll" id="feedback9" style="height: 70px;"></textarea>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="clr"></div>
+        <center>
+          <div class="btn-t2" onclick="window.location.href='home.html';" style="margin-top:-20px;">ยกเลิกประเมินผล</div>
+          <button class="btn-t1 disabledbutton" onclick="SubmitSurvey()" id="SubmitApp">บันทึกรายการ</button>
+        </center>
+
+
+
+
+
+      <div id="OldSurvey" style="display: block;margin-top:10px;">
+        <div class="btn-survey" onclick="window.location.href='home.html';">ยินดีต้อนรับสู่ครอบครัว RSOC<br>คลิกเพื่อดูรายละเอียดกิจกรรม</div>
+      </div>
+
+  </main>
+-->
+
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="width:100%;margin:auto;">
+        <div style="padding:20px;text-align: center;">
+          <div class="btn-t3">ขอขอบคุณสำหรับการตอบแบบสอบถาม</div>
+          <div><img src="./img/thankyou.gif" style="width:280px;margin-top:15px;"></div>
+          <div class="btn-t1" onclick="GotoHome()">ไปเริ่มต้นภารกิจกันเลย</div>
+        </div>
+        <div style="height:20px;"></div>
+      </div>
+    </div>
+    <div class="clr" style="height:50px;"></div>
+  </div>
+
+  <footer class="container-fluid text-center">
+    <div id="isLoggedIn" style="color:#ffffff;"></div>
+    <a href="#myPage" title="To Top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+    <div class="footer-main">
+      @<span class="footer-font-green">LINE</span> 
+      <span class="footer-font-navi">Retail</span> 
+      <span class="footer-font-blue">So</span><span class="footer-font-org">ciety</span>
+    </div>
+    <!--<div class="clr" style="height: 40px;"></div>-->
+  </footer>
+
+<script src="./js/showsurvey.js"></script>
+</body>
+</html>

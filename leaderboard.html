@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <link href="./img/favicom.ico" rel="icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <!--<link href='css/add.css' rel="stylesheet" type="text/css">-->
+  <link href='css/vdo.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+
+  <link rel='stylesheet' href='https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css'>
+  <link rel='stylesheet' href='https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css'>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <style type="text/css">
+    .w3-container, .w3-panel {
+      padding:0px;
+    }
+    table.dataTable tbody th, table.dataTable tbody td { padding:2px;}
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #fff;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="navbar1">
+    <center>
+      <div style="max-width:400px;">
+        <div class="iconlink" onClick="window.location='home.html';">
+          <div style="width:28px;"><img src="./img/home.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">หน้าแรก</div>
+        </div>
+        <div class="iconlink" onClick="window.location='leaderboard.html';" style="background-color: #002d63;">
+          <div style="width:28px;"><img src="./img/graph.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">จัดอันดับ</div>
+        </div>
+        <div class="iconlink" onClick="window.location='random.html';">
+          <div style="width:28px;"><img src="./img/leader.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ลุ้นรางวัล</div>
+        </div>
+        <div class="iconlink" onClick="window.location='about.html';">
+          <div style="width:28px;"><img src="./img/howto.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">การแข่งขัน</div>
+        </div>
+     </div>
+    </center>
+  </div>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#myPage" onclick="location.href='home.html'" style="font-size: 12px;">LINE Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" style="margin-top:60px;">
+    <div class="container" style="max-width: 600px;">
+      <center>
+        <div class="btn-t33">ตารางผู้นำการแข่งขัน</div>
+        <div style="width:90%; margin:15px auto;">
+          <div class="ScoreGame4">
+            <div id="Loading1" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show1" style="display:none;"><div id="ShowUserSumTime1" style="font-size:13px;">0<div class="ScoreGame4-text">จำนวน<br>ผู้แข่งขัน</div></div></div>
+          </div>
+          <div class="ScoreGame4">
+            <div id="Loading2" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show2" style="display:none;"><div id="ShowUserSumTime2" style="font-size:13px;">0<div class="ScoreGame4-text">%การตอบ<br>คำถามถูก</div></div></div>
+          </div>
+          <div class="ScoreGame4">
+            <div id="Loading3" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show3" style="display:none;"><div id="ShowUserSumTime3" style="font-size:13px;">0<div class="ScoreGame4-text">%การตอบ<br>คำถามผิด</div></div></div>
+          </div>
+          <div class="ScoreGame4">
+            <div id="Loading4" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show4" style="display:none;"><div id="ShowUserSumTime4" style="font-size:13px;">0<div class="ScoreGame4-text">คะแนนสะสม<br>รวม</div></div></div>
+          </div>
+          <div class="clr"></div>
+          <div class="text-team" style="margin:8px;color:#999;">ข้อมูลภาพรวมการเข้าร่วมกิจกรรม</div>
+        </div>
+      </center>
+    </div>
+  </main>
+
+
+  <div class="clr"></div>
+  <div class="container" style="max-width: 600px;">
+    <center>
+      <div style="margin-top:0px;">
+        <div class="btn-t1" onclick="TopLeaderBoard()">ตารางผู้นำ 50 อันดับแรก</div>
+        <div class="btn-t1" onclick="TopAllMember()">คะแนนผู้แข่งขัน</div>
+      </div>
+      <div class="clr"></div>
+      <div id="DisplayTop50" style="display:none; margin-top:20px;"></div>
+      <div id="DisplayMemberG" style="display:none; margin-top:20px;width:98%; ">
+        <div class="text-team" style="padding:0;"><font color="#f68b1f"><b><u>คะแนนผู้แข่งขัน</u></b></font><br>ข้อมูลผู้เข้าร่วมกิจกรรมทั้งหมด</div>
+        <table id="ex-table" class="display" style="width:100%;font-size: 11px;color:#444444;">
+          <thead>
+            <tr>
+              <th style="width:10%;">รูป</th>
+              <th style="width:75%;">รายละเอียด</th>
+              <th style="width:15%;">รายการ</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </center>
+    
+  </div>
+
+
+
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="width:100%;padding:20px;">
+        <div id="DisplayProfile"></div>
+        <center>
+          <div class="btn-t0" onclick="CloseAll()" style="margin-top:25px;">ปิดหน้าต่างนี้</div>
+        </center>
+      </div>
+    </div>
+    <div class="clr" style="height:60px;"></div>
+  </div>
+
+
+  <footer class="container-fluid text-center">
+    <div id="isLoggedIn" style="color:#ffffff;"></div>
+    <a href="#myPage" title="To Top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+    <div class="footer-main">
+      @<span class="footer-font-green">LINE</span> 
+      <span class="footer-font-navi">Retail</span> 
+      <span class="footer-font-blue">So</span><span class="footer-font-org">ciety</span>
+    </div>
+    <div class="clr" style="height: 40px;"></div>
+  </footer>
+
+<script src='https://code.jquery.com/jquery-1.12.3.js'></script>
+<script src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js'></script>
+<script src='https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js'></script>
+<script src='https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js'></script>
+<script src='https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js'></script>
+<script src='https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js'></script>
+<script src='https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js'></script>
+<script src='https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js'></script>
+
+<script src="./js/leaderboard.js"></script>
+</body>
+</html>

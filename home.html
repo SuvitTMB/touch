@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <link href="./img/favicom.ico" rel="icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <!--<link href='css/add.css' rel="stylesheet" type="text/css">-->
+  <link href='css/vdo.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <style type="text/css">
+    .w3-container, .w3-panel {
+      padding:0px;
+    }
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #fff;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="navbar1">
+    <center>
+      <div style="max-width:400px;">
+        <div class="iconlink" onClick="window.location='home.html';" style="background-color: #002d63;">
+          <div style="width:28px;"><img src="./img/home.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">หน้าแรก</div>
+        </div>
+        <div class="iconlink" onClick="window.location='leaderboard.html';">
+          <div style="width:28px;"><img src="./img/graph.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">จัดอันดับ</div>
+        </div>
+        <div class="iconlink" onClick="window.location='random.html';">
+          <div style="width:28px;"><img src="./img/leader.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ลุ้นรางวัล</div>
+        </div>
+        <div class="iconlink" onClick="window.location='about.html';">
+          <div style="width:28px;"><img src="./img/howto.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">การแข่งขัน</div>
+        </div>
+     </div>
+    </center>
+  </div>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#myPage" onclick="location.href='index.html'" style="font-size: 12px;">LINE Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <main id="main" style="margin-top:60px;">
+    <div class="container" style="max-width: 450px;">
+      <center>
+        <div id="MyProfile" style="margin-top:26px;"></div>
+        <div style="width:90%; margin:15px auto;">
+          <div class="ScoreGame4">
+            <div id="Loading1" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show1" style="display:none;"><div id="ShowUserSumTime1" style="font-size:13px;">0<div class="ScoreGame4-text">จำนวน<br>แข่งสะสม</div></div></div>
+          </div>
+          <div class="ScoreGame4">
+            <div id="Loading2" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show2" style="display:none;"><div id="ShowUserSumTime2" style="font-size:13px;">0<div class="ScoreGame4-text">%การตอบ<br>คำถามถูก</div></div></div>
+          </div>
+          <div class="ScoreGame4">
+            <div id="Loading3" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show3" style="display:none;"><div id="ShowUserSumTime3" style="font-size:13px;">0<div class="ScoreGame4-text">%การตอบ<br>คำถามผิด</div></div></div>
+          </div>
+          <div class="ScoreGame4">
+            <div id="Loading4" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show4" style="display:none;"><div id="ShowUserSumTime4" style="font-size:13px;">0<div class="ScoreGame4-text">คะแนนสะสม<br>ล่าสุด</div></div></div>
+          </div>
+          <div class="clr"></div>
+          <div id="Bar0" style="margin:5px;"></div>
+        </div>
+        <div class="text-team" style="margin:-10px;">คะแนนการแข่ขันของคุณ</div>
+
+
+
+        <div class="clr"></div>
+        <div class="btn-t33" style="margin-top:30px;">ภารกิจค้นหา "แฟนพันธุ์แท้ทัช"</div>
+      </center>
+      <div style="width:300px; margin:auto;">
+        <div class="box-menu" onclick="GotoGame(1)"><img src="./img/apptouch.png" style="width:60px;"><div class="text-team1">รู้จักทัชให้มากขึ้น</div><div id="RatioGame1"></div></div>
+        <div class="box-menu" onclick="GotoGame(2)"><img src="./img/learning.png" style="width:60px;"><div class="text-team1">เรียนรู้ผลิตภัณฑ์</div><div id="RatioGame2"></div></div>
+        <div class="box-menu" onclick="GotoGame(3)"><img src="./img/youknow.png" style="width:60px;"><div class="text-team1">เรียนรู้การใช้งาน</div><div id="RatioGame3"></div><div id="RatioGame3"></div></div>
+        <div class="box-menu" onclick="GotoGame(4)"><img src="./img/question.png" style="width:60px;"><div class="text-team1">คำถามประจำวัน</div><div id="RatioGame4"></div></div>
+      </div>
+
+      <div class="clr" style="height: 10px;"></div>
+      <div class="text-team" style="text-align: center;margin:0px;">4 ภารกิจที่จะทำให้คุณรู้จักกับทัชมากยิ่งขึ้น</div>
+      <div id="NewSurvey" style="display: none;margin-top:10px;">
+      <div class="btn-survey1" onclick="window.location.href='registerpage.html';">คลิกเพื่อลงทะเบียน<br>ก่อนเข้าร่วมกิจกรรม</div>
+      </div>
+      <div id="OldSurvey" style="display: none;margin-top:10px;">
+      <div class="btn-survey" onclick="window.location.href='home.html';">ยินดีต้อนรับสู่ครอบครัว RSOC<br>คลิกเพื่อดูรายละเอียดกิจกรรม</div>
+      </div>
+      <div id="CancelSurvey" style="display: none;margin-top:10px;">
+        <div class="btn-survey1" onclick="#" style="background-color: #ff0000;border:1px solid #ffffff;">คุณไม่ได้รับอนุญาต<br>ในการเข้าใช้ระบบงาน</div>
+      </div>
+    </div>
+  </main>
+
+
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="width:100%;margin:auto;">
+        <div id="DisplayIntro"></div>
+      </div>
+    </div>
+    <div class="clr" style="height:50px;"></div>
+  </div>
+
+
+  <footer class="container-fluid text-center">
+    <div id="isLoggedIn" style="color:#ffffff;"></div>
+    <a href="#myPage" title="To Top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+    <div class="footer-main">
+      @<span class="footer-font-green">LINE</span> 
+      <span class="footer-font-navi">Retail</span> 
+      <span class="footer-font-blue">So</span><span class="footer-font-org">ciety</span>
+    </div>
+    <div class="clr" style="height: 40px;"></div>
+  </footer>
+
+<script src="./js/home.js"></script>
+</body>
+</html>

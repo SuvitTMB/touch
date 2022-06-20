@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <link href="./img/favicom.ico" rel="icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <!--<link href='css/add.css' rel="stylesheet" type="text/css">-->
+  <link href='css/vdo.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <style type="text/css">
+    .w3-container, .w3-panel {
+      padding:0px;
+    }
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #fff;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="navbar1">
+    <center>
+      <div style="max-width:400px;">
+        <div class="iconlink" onClick="window.location='home.html';">
+          <div style="width:28px;"><img src="./img/home.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">หน้าแรก</div>
+        </div>
+        <div class="iconlink" onClick="window.location='leaderboard.html';">
+          <div style="width:28px;"><img src="./img/graph.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">จัดอันดับ</div>
+        </div>
+        <div class="iconlink" onClick="window.location='random.html';">
+          <div style="width:28px;"><img src="./img/leader.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ลุ้นรางวัล</div>
+        </div>
+        <div class="iconlink" onClick="window.location='about.html';" style="background-color: #002d63;">
+          <div style="width:28px;"><img src="./img/howto.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">การแข่งขัน</div>
+        </div>
+     </div>
+    </center>
+  </div>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#myPage" onclick="location.href='home.html'" style="font-size: 12px;">LINE Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" style="margin-top:60px;">
+    <div class="container" style="max-width: 600px;">
+      <center>
+        <div class="btn-t33">กิจกรรม แฟนพันธุ์แท้ทัช</div>
+        <div class="text-team" style="margin:10px auto;text-align: left;">มาดูกันว่าเพื่อน ๆ ของเราเข้าร่วมการแข่งขันการมากน้อยแค่ไหน และมีสถิติการตอบคำถามทัชกันได้ถูกต้องกันสักกี่เปอร์เซ็นต์ และสามารถทำคะแนนสะสมรวมได้มากแค่ไหน</div>
+        <div style="width:95%; margin:0px auto 15px auto;">
+          <div class="ScoreGame4">
+            <div id="Loading1" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show1" style="display:none;"><div id="ShowUserSumTime1" style="font-size:13px;">0<div class="ScoreGame4-text">จำนวน<br>ผู้แข่งขัน</div></div></div>
+          </div>
+          <div class="ScoreGame4">
+            <div id="Loading2" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show2" style="display:none;"><div id="ShowUserSumTime2" style="font-size:13px;">0<div class="ScoreGame4-text">%การตอบ<br>คำถามถูก</div></div></div>
+          </div>
+          <div class="ScoreGame4">
+            <div id="Loading3" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show3" style="display:none;"><div id="ShowUserSumTime3" style="font-size:13px;">0<div class="ScoreGame4-text">%การตอบ<br>คำถามผิด</div></div></div>
+          </div>
+          <div class="ScoreGame4">
+            <div id="Loading4" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show4" style="display:none;"><div id="ShowUserSumTime4" style="font-size:13px;">0<div class="ScoreGame4-text">คะแนนสะสม<br>รวม</div></div></div>
+          </div>
+        </div>
+        <div class="clr"></div>
+
+
+        <div class="btn-t33" style="margin-top:40px;">ภารกิจของคุณ</div>
+        <div class="text-team" style="margin:0px auto 10px auto;text-align: left;">กลับมาอีกครั้งกับกิจกรรมค้นหา "แฟนพันธุ์แท้ทัช" มาพบกับ 4 ภารกิจที่จะต้องพิชิต และค้นหาผู้นำการแข่งขัน 50 อันดับเพื่อรับรางวัลจากเรา พร้อมกับการลุ้นรับรางวัลการตอบคำถามประจำวันวันละ 2 รางวัลตลอดช่วงเวลาของการแข่งขัน มาดูกันว่าเราแข่งขันอะไรกันบ้าง</div>
+        <div style="width:95%; margin:15px auto;">
+          <div class="ScoreGame5" onclick="location.href='game1.html'">
+            ภารกิจที่ 1<br><img src="./img/apptouch.png" style="width:50px;"><div class="text-team1">รู้จักทัช<br>ให้มากขึ้น</div>
+          </div>
+          <div class="ScoreGame5" onclick="location.href='game2.html'">
+            ภารกิจที่ 2<br><img src="./img/learning.png" style="width:50px;"><div class="text-team1">เรียนรู้<br>ผลิตภัณฑ์</div>
+          </div>
+          <div class="ScoreGame5" onclick="location.href='game3.html'">
+            ภารกิจที่ 3<br><img src="./img/youknow.png" style="width:50px;"><div class="text-team1">เรียนรู้<br>การใช้งาน</div>
+          </div>
+          <div class="ScoreGame5" onclick="location.href='game4.html'">
+            ภารกิจที่ 4<br><img src="./img/question.png" style="width:50px;"><div class="text-team1">คำถาม<br>ประจำวัน</div>
+          </div>
+          <div class="clr"></div>
+          <div class="text-team" style="margin:8px;color:#999;">คลิกเลือกแต่ละภารกิจเพื่อทำการแข่งขัน</div>
+        </div>
+        <div class="clr"></div>
+
+
+        <div class="btn-t33" style="margin-top:10px;">รางวัลสำหรับการแข่งขัน</div>
+        <div class="text-team" style="margin:0px auto 10px auto;text-align: left;">กลับมาอีกครั้งกับกิจกรรมค้นหา "แฟนพันธุ์แท้ทัช" มาพบกับ 4 ภารกิจที่จะต้องพิชิต และค้นหาผู้นำการแข่งขัน 50 อันดับเพื่อรับรางวัลจากเรา พร้อมกับการลุ้นรับรางวัลการตอบคำถามประจำวันวันละ 2 รางวัลตลอดช่วงเวลาของการแข่งขัน มาดูกันว่าเราแข่งขันอะไรกันบ้าง</div>
+        <div>
+          <ul style="font-size: 11px; text-align: left; color:#002d63;">
+            <li>รางวัลชนะเลิศ : xxxxx</li>
+            <li>รองชนะเลิศ อันดับที่ 1 : xxx</li>
+            <li>รองชนะเลิศ อันดับที่ 2 : xxx</li>
+            <li>อันดับที่ 3-10 : xxx</li>
+            <li>อันดับที่ 11-30 : xxx</li>
+            <li>อันดับที่ 31-50 : xxx</li>
+          </ul>
+        <div class="text-team" style="margin:0px auto 10px auto;text-align: left;">และตลอดช่วงเวลาของการแข่งขัน ผู้แข่งขันที่ตอบคำถามได้ถูกต้องสามารถรอลุ้นผลการสุ่มเลือกของรางวันประจำวันได้ตลอดการแข่งขัน โดยจะมีการสุ่มเลือกวันละ 2 รางวัล (ผู้ที่ได้รับรางวัลประจำวันไปแล้ว สามารถรับรางวัลซ้ำได้อีกในวันถัดไป)</div>
+        </div>
+
+
+        <div class="btn-t33" style="margin-top:10px;">กติการการแข่งขัน</div>
+        <div class="text-team" style="margin:0px auto 10px auto;text-align: left;">เพื่อให้กิจกรรมมีความหลากหลาย เราได้จัดเตรียม 4 ภารกิจ เพื่อท้าทายความสามารถของผู้เข้าร่วมการแข่งขัน เรามาดูกติการการแข่งขันกัน</div>
+        <div>
+          <ul style="font-size: 11px; text-align: left; color:#002d63;">
+            <li>การแข่งขันจะเริ่มตั้งแต่วันที่ 1-31 กรกฎาคม 2565</li>
+            <li>คำถามที่นำมาใช้ในการถามเป็นคำถามจาก ttbbank.com</li>
+            <li>ภารกิจที่ 1,2,3 สามารถใช้เวลาว่างในการเข้าร่วมการแข่งขันได้</li>
+            <li>ภารกิจที่ 4 การตอบคำถามประจำวัน หากไม่ได้เข้าร่วมในวันนั้นจะไม่สามารถย้อนกลับมาเก็บคะแนนได้</li>
+            <li>การแข่งขันจะมีขึ้นทุกวันไม่เว้นวันหยุด</li>
+            <li>ผู้ที่จะรับรางวัลจะต้องมีคะแนนอยู่ใน 1-50 อันดับแรก กรณีที่มีคะแนนเท่ากันในอันดับสุดท้ายผู้ตัดสินจะพิจารณารางวัลอีกครั้ง</li>
+            <li>ผู้ที่จะได้รับสิทธิ์ลุ้นรับรางวัลประจำวันได้ จะต้องตอบคำถามประจำวันของวันนั้น ๆ ได้ถูกต้อง</li>
+            <li>ทุกท่านจะต้องตรวจสอบสถานที่สำหรับการจัดส่งของรางวัล พร้อมระบุหมายเลขโทรศัพท์ให้ถูกต้อง</li>
+            <li>ของรางวัลจะนำส่งเมื่อสิ้นสุดการแข่งขัน</li>
+            <li>กรณีพบปัญหาการใช้งานแจ้งผู้ดูแลระบบ</li>
+            <li>คณะกรรมการสามารถทำการเปลี่ยนแปลงเกณฑ์การแข่งขันได้ตามความเหมาะสม</li>
+            <li>การตัดสินของคณะกรรมการถือเป็นที่สินสุด</li>
+          </ul>
+        </div>
+      </center>
+    </div>
+  </main>
+
+<!--
+  <div class="clr"></div>
+  <div class="container" style="max-width: 600px;">
+    <center>
+      <div style="margin-top:0px;">
+        <div class="btn-t1" onclick="UnLoading()">ตารางผู้นำ 30 อันดับแรก</div>
+        <div class="btn-t1" onclick="UserBoard()">คะแนนผู้แข่งขัน</div>
+      </div>
+      <div class="clr"></div>
+      <div id="DisplayRSOCTeam" style="margin-top:30px;"></div>
+    </center>
+    
+  </div>
+-->
+
+
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="width:100%;padding:20px;">
+        <div id="DisplayProfile"></div>
+        <center>
+          <div class="btn-t1" onclick="CloseAll()" style="margin-top:25px;">ปิดหน้าต่างนี้</div>
+        </center>
+      </div>
+    </div>
+    <div class="clr" style="height:50px;"></div>
+  </div>
+
+
+  <footer class="container-fluid text-center">
+    <div id="isLoggedIn" style="color:#ffffff;"></div>
+    <a href="#myPage" title="To Top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+    <div class="footer-main">
+      @<span class="footer-font-green">LINE</span> 
+      <span class="footer-font-navi">Retail</span> 
+      <span class="footer-font-blue">So</span><span class="footer-font-org">ciety</span>
+    </div>
+    <div class="clr" style="height: 40px;"></div>
+  </footer>
+
+<script src="./js/about.js"></script>
+</body>
+</html>

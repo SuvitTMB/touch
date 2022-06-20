@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <link href="./img/favicom.ico" rel="icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <!--<link href='css/add.css' rel="stylesheet" type="text/css">-->
+  <link href='css/vdo.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <style type="text/css">
+    .w3-container, .w3-panel {
+      padding:0px;
+    }
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #fff;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="navbar1">
+    <center>
+      <div style="max-width:400px;">
+        <div class="iconlink" onClick="window.location='home.html';">
+          <div style="width:28px;"><img src="./img/home.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">หน้าแรก</div>
+        </div>
+        <div class="iconlink" onClick="window.location='leaderboard.html';">
+          <div style="width:28px;"><img src="./img/graph.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">จัดอันดับ</div>
+        </div>
+        <div class="iconlink" onClick="window.location='random.html';" style="background-color: #002d63;">
+          <div style="width:28px;"><img src="./img/leader.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ลุ้นรางวัล</div>
+        </div>
+        <div class="iconlink" onClick="window.location='about.html';">
+          <div style="width:28px;"><img src="./img/howto.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">การแข่งขัน</div>
+        </div>
+     </div>
+    </center>
+  </div>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#myPage" onclick="location.href='home.html'" style="font-size: 12px;">LINE Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" style="margin-top:60px;">
+    <div class="container" style="max-width: 600px;">
+      <center>
+        <div class="btn-t33">ลุ้นรางวัลประจำวัน</div>
+        <div style="width:90%; margin:15px auto;">
+          <div class="ScoreGame4">
+            <div id="Loading1" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show1" style="display:none;"><div id="ShowUserSumTime1" style="font-size:13px;">0<div class="ScoreGame4-text">จำนวน<br>ผู้แข่งขัน</div></div></div>
+          </div>
+          <div class="ScoreGame4">
+            <div id="Loading2" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show2" style="display:none;"><div id="ShowUserSumTime2" style="font-size:13px;">0<div class="ScoreGame4-text">%การตอบ<br>คำถามถูก</div></div></div>
+          </div>
+          <div class="ScoreGame4">
+            <div id="Loading3" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show3" style="display:none;"><div id="ShowUserSumTime3" style="font-size:13px;">0<div class="ScoreGame4-text">%การตอบ<br>คำถามผิด</div></div></div>
+          </div>
+          <div class="ScoreGame4">
+            <div id="Loading4" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show4" style="display:none;"><div id="ShowUserSumTime4" style="font-size:13px;">0<div class="ScoreGame4-text">คะแนนสะสม<br>รวม</div></div></div>
+          </div>
+          <div class="clr"></div>
+          <div class="text-team" style="margin:8px;color:#ff0000;">ผู้ตอบคำถามประจำวันถูก ลุ้นรับรางวัลประจำวัน<br>หมายเหตุ : ของรางวัลจะจัดส่งไปหลังสิ้นสุดกิจกรรมนี้</div>
+        </div>
+      </center>
+    </div>
+  </main>
+
+
+  <div class="clr"></div>
+  <div class="container" style="max-width: 600px;">
+    <center>
+      <div style="margin-top:0px;">
+        <div class="btn-t1" onclick="ListRewards()">ตรวจรางวัลประจำวัน</div>
+        <div class="btn-t1" onclick="UserRewards()">รางวัลของคุณ</div>
+      </div>
+      <div class="clr"></div>
+      <div id="DisplayAllRewards" style="display:none; margin-top:20px;"></div>
+      <div id="DisplayUserRewards" style="display:none; margin-top:20px;"></div>
+    </center>
+    
+  </div>
+
+
+
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="width:100%;padding:20px;">
+        <div id="DisplayProfile"></div>
+        <center>
+          <div class="btn-t0" onclick="CloseAll()" style="margin-top:25px;">ปิดหน้าต่างนี้</div>
+        </center>
+      </div>
+    </div>
+    <div class="clr" style="height:50px;"></div>
+  </div>
+
+
+  <div id="id02" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="width:100%;padding:20px;">
+        <div id="DisplayAddress"></div>
+        <center>
+          <div class="btn-t0" onclick="CloseAll()" style="margin-top:25px;">ปิดหน้าต่างนี้</div>
+        </center>
+      </div>
+    </div>
+    <div class="clr" style="height:50px;"></div>
+  </div>
+
+
+  <div id="id03" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="width:100%;padding:20px;">
+        <div id="DisplayGift"></div>
+        <center>
+
+
+        <div style="width:100%; margin:0px auto;">
+          <div class="text-team" style="padding:7px;">ข้อมูลสถิติการตอบคำถามประจำวัน</div>
+          <div class="ScoreGame4">
+            <div id="Show1"><div id="Data1" style="font-size:13px;color:#002d63;"></div><div class="ScoreGame4-text">จำนวน<br>ผู้แข่งขัน</div></div>
+          </div>
+          <div class="ScoreGame4">
+            <div id="Show2"><div id="Data2" style="font-size:13px;color:#0056ff;"></div><div class="ScoreGame4-text">จำนวน<br>ตอบถูก</div></div>
+          </div>
+          <div class="ScoreGame4">
+            <div id="Show3"><div id="Data3" style="font-size:13px;color:#ff0000"></div><div class="ScoreGame4-text">จำนวน<br>ตอบผิด</div></div>
+          </div>
+          <div class="ScoreGame4">
+            <div id="Show4"><div id="Data4" style="font-size:13px;color:#2dcc02"></div><div class="ScoreGame4-text">%การ<br>ตอบถูก</div></div>
+          </div>
+          <div class="clr"></div>
+          <div class="text-team" style="margin-top:20px;padding:5px;">ของรางวัลประจำรอบ จำนวน 2 รางวัล</div>
+          <div id="DisplayGiftToday" class="btn-t2" style="margin-top:0px;cursor: default;"></div>
+
+          <div class="text-team" style="margin-top:20px;padding:5px;text-align: left;">คุณได้รับสิทธิ์ให้เป็นผู้ทำการกดสุ่มของรางวัล ประจำวัน ขอให้ทำการกดปุ่ม <b><font color="#0056ff">"สุ่มเลือกผู้โชคดี"</font></b> ด้านล่าง เพื่อสุ่มเลือกผู้ที่จะได้รับรางวัลประจำวัน</div>
+
+
+        </div>
+
+        <div id="DisplayRandomGift"></div>
+
+          <div id="SubmitRewards" class="btn-t1" onclick="CheckRandomGift()" style="margin-top:25px;">สุ่มเลือกผู้โชคดี</div>
+          <div class="btn-t0" onclick="CloseAll()" style="margin-top:25px;">ปิดหน้าต่าง</div>
+        </center>
+        <div class="clr" style="height:15px;"></div>
+      </div>
+    </div>
+    <div class="clr" style="height:50px;"></div>
+  </div>
+
+
+  <footer class="container-fluid text-center">
+    <div id="isLoggedIn" style="color:#ffffff;"></div>
+    <a href="#myPage" title="To Top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+    <div class="footer-main">
+      @<span class="footer-font-green">LINE</span> 
+      <span class="footer-font-navi">Retail</span> 
+      <span class="footer-font-blue">So</span><span class="footer-font-org">ciety</span>
+    </div>
+    <div class="clr" style="height: 40px;"></div>
+  </footer>
+
+<script src="./js/random.js"></script>
+</body>
+</html>

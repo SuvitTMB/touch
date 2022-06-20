@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <link href="./img/favicom.ico" rel="icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <link href='css/vdo.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <style type="text/css">
+    .w3-container, .w3-panel {
+      padding:0px;
+    }
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #fff;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="navbar1">
+    <center>
+      <div style="max-width:400px;">
+        <div class="iconlink" onClick="window.location='game1.html';">
+          <div style="width:28px;"><img src="./img/mission1.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ภารกิจที่ 1</div>
+        </div>
+        <div class="iconlink" onClick="window.location='game2.html';">
+          <div style="width:28px;"><img src="./img/mission2.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ภารกิจที่ 2</div>
+        </div>
+        <div class="iconlink" onClick="window.location='game3.html';" style="background-color: #002d63;">
+          <div style="width:28px;"><img src="./img/mission3.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ภารกิจที่ 3</div>
+        </div>
+        <div class="iconlink" onClick="window.location='game4.html';">
+          <div style="width:28px;"><img src="./img/mission4.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ภารกิจที่ 4</div>
+        </div>
+     </div>
+    </center>
+  </div>
+
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#myPage" onclick="location.href='index.html'" style="font-size: 12px;">LINE Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <section id="viewpage">
+    <div class="container">
+      <center>
+      <div style="max-width:450px;">
+
+        <div class="btn-t33" style="margin-top:70px;">ภารกิจที่ 3 : เรียนรู้การใช้งาน</div>
+        <div id="MyProfile" style="margin-top:15px;"></div>
+
+        <div style="width:90%; margin:15px auto;">
+          <div class="ScoreGame4">
+            <div id="Loading1" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show1" style="display:none;"><div id="ShowUserSumTime1" style="font-size:13px;">0<div class="ScoreGame4-text">จำนวน<br>การเรียนรู้</div></div></div>
+          </div>
+          <div class="ScoreGame4">
+            <div id="Loading2" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show2" style="display:none;"><div id="ShowUserSumTime2" style="font-size:13px;">0<div class="ScoreGame4-text">%การตอบ<br>คำถามถูก</div></div></div>
+          </div>
+          <div class="ScoreGame4">
+            <div id="Loading3" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show3" style="display:none;"><div id="ShowUserSumTime3" style="font-size:13px;">0<div class="ScoreGame4-text">%การตอบ<br>คำถามผิด</div></div></div>
+          </div>
+          <div class="ScoreGame4">
+            <div id="Loading4" style="display:block;"><img src="./img/loading.gif" style="padding-top:15px;width:20px;"></div>
+            <div id="Show4" style="display:none;"><div id="ShowUserSumTime4" style="font-size:13px;">0<div class="ScoreGame4-text">คะแนนสะสม<br>ล่าสุด</div></div></div>
+          </div>
+          <div class="clr"></div>
+          <div id="Bar0" style="margin:5px;"></div>
+        </div>
+        <div class="clr"></div>
+
+        <div style="margin-top:10px;">
+          <div class="btn-t1" onclick="UnLoading()">โจทย์ของคุณ</div>
+          <div class="btn-t1" onclick="UserBoard()">คะแนนของคุณ</div>
+          <div class="btn-t1" onclick="LeaderBoard()">ตารางผู้นำ</div>
+        </div>
+
+        <div id="DisplayPage" style="padding:10px;display: block;">
+          <div class="title-touch" style="color:#0056ff;">มาเรียนรู้วิธีการใช้งาน ttb touch ใหม่กัน</div>
+          <div class="text-team" style="text-align: left;">เราเตรียม 9 เรื่องราว ที่จะให้เพื่อนๆ ได้เรียนรู้การใช้งาน เพื่อให้เราสามารถใช้งาน ttb touch ใหม่ได้อย่างเต็มประสิทธิภาพ มาเริ่มเรียนรู้วิธีการใช้งานแอปกันเถอะ</div>
+          <div>
+            <div class="box-learning">
+              <div id="DisplayWait1" style="display:block;"><img src="./img/loading.gif" style="padding-top:30px;width:20px;"></div>
+              <div id="DisplayShow1" style="display:none;" onclick="ClickLearningID(1)">
+                <img src="./img/png-1.png" style="width:50px;">
+                <div class="text-team1">การเริ่มต้น<br>ใช้งาน touch</div>
+                <div id="Bar1"></div>
+              </div>
+            </div>
+            <div class="box-learning">
+              <div id="DisplayWait2" style="display:block;"><img src="./img/loading.gif" style="padding-top:30px;width:20px;"></div>
+              <div id="DisplayShow2" style="display:none;" onclick="ClickLearningID(2)">
+                <img src="./img/png-2.png" style="width:50px;">
+                <div class="text-team1">การตั้งค่า<br>แบบเฉพาะคุณ</div>
+                <div id="Bar2"></div>
+              </div>
+            </div>
+            <div class="box-learning">
+              <div id="DisplayWait3" style="display:block;"><img src="./img/loading.gif" style="padding-top:30px;width:20px;"></div>
+              <div id="DisplayShow3" style="display:none;" onclick="ClickLearningID(3)">
+                <img src="./img/png-3.png" style="width:50px;">
+                <div class="text-team1">สิทธิประโยชน์<br>ของฉัน</div>
+                <div id="Bar3"></div>
+              </div>
+            </div>
+            <div class="box-learning">
+              <div id="DisplayWait4" style="display:block;"><img src="./img/loading.gif" style="padding-top:30px;width:20px;"></div>
+              <div id="DisplayShow4" style="display:none;" onclick="ClickLearningID(4)">
+                <img src="./img/png-4.png" style="width:50px;">
+                <div class="text-team1">บริการ<br>บัญชีเงินฝาก</div>
+                <div id="Bar4"></div>
+              </div>
+            </div>
+            <div class="box-learning">
+              <div id="DisplayWait5" style="display:block;"><img src="./img/loading.gif" style="padding-top:30px;width:20px;"></div>
+              <div id="DisplayShow5" style="display:none;" onclick="ClickLearningID(5)">
+                <img src="./img/png-5.png" style="width:50px;">
+                <div class="text-team1">บริการ<br>บัตรเครดิต</div>
+                <div id="Bar5"></div>
+              </div>
+            </div>
+            <div class="box-learning">
+              <div id="DisplayWait6" style="display:block;"><img src="./img/loading.gif" style="padding-top:30px;width:20px;"></div>
+              <div id="DisplayShow6" style="display:none;" onclick="ClickLearningID(6)">
+                <img src="./img/png-6.png" style="width:50px;">
+                <div class="text-team1">บริการ<br>สินเชื่อรถยนต์</div>
+                <div id="Bar6"></div>
+              </div>
+            </div>
+            <div class="box-learning">
+              <div id="DisplayWait7" style="display:block;"><img src="./img/loading.gif" style="padding-top:30px;width:20px;"></div>
+              <div id="DisplayShow7" style="display:none;" onclick="ClickLearningID(7)">
+                <img src="./img/png-7.png" style="width:50px;">
+                <div class="text-team1">บริการ<br>กองทุน</div>
+                <div id="Bar7"></div>
+              </div>
+            </div>
+            <div class="box-learning">
+              <div id="DisplayWait8" style="display:block;"><img src="./img/loading.gif" style="padding-top:30px;width:20px;"></div>
+              <div id="DisplayShow8" style="display:none;" onclick="ClickLearningID(8)">
+                <img src="./img/png-8.png" style="width:50px;">
+                <div class="text-team1">บริการ<br>ประกัน</div>
+                <div id="Bar8"></div>
+              </div>
+            </div>
+            <div class="box-learning">
+              <div id="DisplayWait9" style="display:block;"><img src="./img/loading.gif" style="padding-top:30px;width:20px;"></div>
+              <div id="DisplayShow9" style="display:none;" onclick="ClickLearningID(9)">
+                <img src="./img/png-9.png" style="width:50px;">
+                <div class="text-team1">บริการ<br>สินเชื่อ</div>
+                <div id="Bar9"></div>
+              </div>
+            </div>
+          </div>
+       </div>
+
+
+        <div id="LoadingScore" style="display:none;">
+          <img src="./img/loading.gif" style="padding-top:45px;width:20px;margin-bottom: 30px;">
+        </div>
+
+        <div id="UserScore" style="display:none;padding:10px;">
+          <div class="title-touch" style="color:#0056ff;margin-top:0px;">ตารางผู้นำการแข่งขันการเรียนรู้วิธีการใช้งาน</div>
+          <div class="text-team" style="text-align: left;">เพื่อให้กิจกรรมของเราสนุกมากยิ่งขึ้น เรามาดูกันว่าใครที่สามารถที่จะทำคะแนนในหมวดนี้ได้มากที่สุดกัน</div>
+          <div id="UserScore0"></div>
+        </div>
+
+
+        <div id="UserBoard" style="display:none;padding:10px;">
+          <div class="title-touch" style="color:#0056ff;margin-top:0px;">ตารางคะแนนการเรียนรู้วิธีการใช้งาน</div>
+          <div class="text-team" style="text-align: left;">คุณสามารถตรวจสอบตารางการเรียนรู้วิธีการใช้งาน ttb touch ใหม่ของคุณได้ที่นี่ </div>
+          <table class="table" style="width:95%;"><tbody>
+            <tr>
+              <td class="td-center td-padding" style="width:10%;text-align:center;">1</td>
+              <td class="td-padding" style="width:70%;"><font color="#0056ff">การเริ่มต้นใช้งาน ttb touch</font></td>
+              <td class="td-padding" style="width:20%;text-align:center;color:#000;font-weight: 600;" id="UserPoint1"></td>
+            </tr>
+            <tr>
+              <td class="td-center td-padding" style="width:10%;text-align:center;">2</td>
+              <td class="td-padding" style="width:70%;"><font color="#0056ff">การตั้งค่าแบบเฉพาะคุณ</font></td>
+              <td class="td-padding" style="width:20%;text-align:center;color:#000;font-weight: 600;" id="UserPoint2"></td>
+            </tr>
+            <tr>
+              <td class="td-center td-padding" style="width:10%;text-align:center;">3</td>
+              <td class="td-padding" style="width:70%;"><font color="#0056ff">สิทธิประโยชน์ของฉัน</font></td>
+              <td class="td-padding" style="width:20%;text-align:center;color:#000;font-weight: 600;" id="UserPoint3"></td>
+            </tr>
+            <tr>
+              <td class="td-center td-padding" style="width:10%;text-align:center;">4</td>
+              <td class="td-padding" style="width:70%;"><font color="#0056ff">บริการบัญชีเงินฝาก</font></td>
+              <td class="td-padding" style="width:20%;text-align:center;color:#000;font-weight: 600;" id="UserPoint4"></td>
+            </tr>
+            <tr>
+              <td class="td-center td-padding" style="width:10%;text-align:center;">5</td>
+              <td class="td-padding" style="width:70%;"><font color="#0056ff">บริการบัตรเครดิต</font></td>
+              <td class="td-padding" style="width:20%;text-align:center;color:#000;font-weight: 600;" id="UserPoint5"></td>
+            </tr>
+            <tr>
+              <td class="td-center td-padding" style="width:10%;text-align:center;">6</td>
+              <td class="td-padding" style="width:70%;"><font color="#0056ff">บริการสินเชื่อรถยนต์</font></td>
+              <td class="td-padding" style="width:20%;text-align:center;color:#000;font-weight: 600;" id="UserPoint6"></td>
+            </tr>
+            <tr>
+              <td class="td-center td-padding" style="width:10%;text-align:center;">7</td>
+              <td class="td-padding" style="width:70%;"><font color="#0056ff">บริการกองทุน</font></td>
+              <td class="td-padding" style="width:20%;text-align:center;color:#000;font-weight: 600;" id="UserPoint7"></td>
+            </tr>
+            <tr>
+              <td class="td-center td-padding" style="width:10%;text-align:center;">8</td>
+              <td class="td-padding" style="width:70%;"><font color="#0056ff">บริการประกัน</font></td>
+              <td class="td-padding" style="width:20%;text-align:center;color:#000;font-weight: 600;" id="UserPoint8"></td>
+            </tr>
+            <tr>
+              <td class="td-center td-padding" style="width:10%;text-align:center;">9</td>
+              <td class="td-padding" style="width:70%;"><font color="#0056ff">บริการสินเชื่อ</font></td>
+              <td class="td-padding" style="width:20%;text-align:center;color:#000;font-weight: 600;" id="UserPoint9"></td>
+            </tr>
+          </tbody></table>
+        </div>
+        <div class="clr" style="height: 10px;"></div>
+        <div class="btn-t2" onclick="ShowIntro()">แนะนำภารกิจ</div>
+        <div class="btn-t0" onclick="location.href='home.html'">กลับหน้าหลัก</div>
+        <div class="clr" style="height: 30px;"></div>
+      </div>
+      </center>
+    </div> 
+  </section>
+
+
+
+  <div id="id03" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:300px;width:100%;text-align:center;">
+        <div><img src="./img/giphy.gif" width="100%"></div>
+        <div class="btn-t33">ภารกิจที่ 2 : เรียนรู้ผลิตภัณฑ์</div>
+        <div class="text-team" style="margin:0px auto 10px auto;text-align: left;">เพื่อให้คุณได้เข้าใจการใช้งานแอป ttb touch ในเรื่องต่าง ๆ ได้อย่างดีและเห็นภาพชัดเจนขึ้น เราเตรียมวิดีโอสำหรับการเรียนรู้ผลิตภัณฑ์แอปทัชใหม่ เพื่อให้เกิดความรู้ ความเข้าใจ และสามารถส่งมอบประสบการณ์ที่ดีให้กับลูกค้าของเราได้อย่างมีประสิทธิภาพ พร้อมลุ้นรับคะแนนและคะแนนพิเศษเพื่อรับคะแนนเพิ่มเป็น 2 เท่า
+        </div>
+
+        <div>
+          <ul style="font-size: 11px; text-align: left; color:#002d63;">
+            <li>วิธีสมัครใช้งาน ttb touch ใหม่</li>
+            <li>การตั้งค่าแบบเฉพาะคุณ</li>
+            <li>สิทธิประโยชน์ของฉัน</li>
+            <li>บริการบัญชีเงินฝาก</li>
+            <li>บริการบัตรเครดิต</li>
+            <li>บริการสินเชื่อรถยนต์</li>
+            <li>บริการกองทุน</li>
+            <li>บริการประกัน</li>
+            <li>บริการสินเชื่อ</li>
+          </ul>
+        </div>
+        <div class="clr"></div>
+        <div class="btn-t2" onclick="CloseAll()" style="margin-top:10px;">ปิดหน้าต่างนี้</div>
+        <div class="clr" style="height:30px;"></div>
+        <!--<div id="DisplayIntro"></div>-->
+      </div>
+    </div>
+    <div class="clr" style="height:70px;"></div>
+  </div>
+
+
+<script src="./js/game3.js"></script>
+<script language="javascript" type="text/javascript">
+$('a.stop-video').click(function(){
+  $('.youtube-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+});
+
+</script>
+<div class="clr" style="height: 40px;"></div>
+</body>
+</html>

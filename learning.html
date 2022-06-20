@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <link href="./img/favicom.ico" rel="icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <link href='css/vdo.css' rel="stylesheet" type="text/css">
+  <!--<link href='css/w3.css' rel="stylesheet" type="text/css">-->
+  <link href='css/quiz.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <style type="text/css">
+    .w3-container, .w3-panel {
+      padding:0px;
+    }
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #fff;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!--
+<div class="navbar1">
+  <center><div class="btn-t2" onclick="location.href='intro.html'">กลับไปหน้าแรก</div></center>
+</div>
+  <div class="navbar2">
+
+  </div>
+-->
+
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#myPage" onclick="location.href='index.html'" style="font-size: 12px;">LINE Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <section id="viewpage">
+    <div class="container">
+      <center>
+      <div style="max-width:500px;padding:10px;">
+
+        <div class="btn-t33" style="margin-top:70px;">ภารกิจที่ 3 : เรียนรู้การใช้งาน</div>
+
+        <div id="OpenData" class="t-table" style="margin-top:0px;">
+          <div style="color:#0056ff;padding:8px;">
+            <div class="menu-subtext">เลือกชุดการเรียนรู้</div>
+            <select id="ClickMenu" onchange="SelectMeunu()" class="menu-team" style="margin-top:4px;width:250px;text-align: left;border-radius: 20px;">
+              <option value="1" id="RSOC-1">1. การเริ่มต้นใช้งาน touch</option>
+              <option value="2" id="RSOC-2">2. การตั้งค่าแบบเฉพาะคุณ</option>
+              <option value="3" id="RSOC-3">3. สิทธิประโยชน์ของฉัน</option>
+              <option value="4" id="RSOC-4">4. บริการบัญชีเงินฝาก</option>
+              <option value="5" id="RSOC-5">5. บริการบัตรเครดิต</option>
+              <option value="6" id="RSOC-6">6. บริการสินเชื่อรถยนต์</option>
+              <option value="7" id="RSOC-7">7. บริการกองทุน</option>
+              <option value="8" id="RSOC-8">8. บริการประกัน</option>
+              <option value="9" id="RSOC-8">9. บริการสินเชื่อ</option>
+            </select>
+          </div>
+        </div>
+        <div style="width:100%;">
+        <div id="Learning1" style="display: none;">
+          <div><img src="./img/game3-01.jpg" style="width:100%;border-radius: 8px;margin-top:10px;"></div>
+          <div class="title-touch" style="color:#0056ff;margin-top:10px;">ชุดที่ 1 : เริ่มต้นการใช้งาน</div>
+          <div class="text-team" style="text-align: left;">เรียนรู้และเริ่มต้นการใช้งานแอป ttb touch อย่างเต็มประสิทธิภาพ</div>
+          <div>
+            <div style="width:100%;">
+              <img src="./img/1_Home.jpg" style="width:30%;">
+              <img src="./img/4_Activation code.jpg" style="width:30%;">
+              <img src="./img/9_Complete.jpg" style="width:30%;">
+            </div>
+            <div class="btn-t4" style="margin-top:15px;">
+              <a href="https://www.ttbbank.com/th/ttb-touch/userguide/ttb-touch-activation" target="_blank"><font color="#ffffff">กรุณาศึกษารายละเอียดเพิ่มเติมได้ที่ ttbbank.com</font></a>
+            </div>
+            <ul style="text-align: left; font-size: 11px; color:#000;margin-top:20px;">
+              <li>ดาวน์โหลดแอปพลิเคชัน ttb touch</li>
+              <li>อ่านรายละเอียดข้อตกลง</li>
+              <li>ใส่รายละเอียด และใช้สัญญาณ 3G/4G/5G จากโทรศัพท์</li>
+              <li>เลือกช่องทางการสมัคร</li>
+              <li>กรอกข้อมูลที่ใช้สมัครบริการ</li>
+              <li>ใส่รหัส OTP ที่ส่งเข้าไปที่เบอร์มือถือ</li>
+              <li>ตั้งรหัส PIN 6 หลัก</li>
+              <li>ยืนยันรหัส PIN อีกครั้ง</li>
+              <li>เริ่มต้นใช้งาน ttb touch สำเร็จ</li>
+            </ul>
+          </div>
+        </div>
+        <div class="clr"></div>
+
+
+
+
+        <div id="Learning2" style="display: none;">
+          222
+        </div>
+        <div class="clr"></div>
+        <div id="Learning3" style="display: none;">
+          333
+        </div>
+        <div class="clr"></div>
+        <div id="Learning4" style="display: none;">
+          444
+        </div>
+        <div class="clr"></div>
+        <div id="Learning5" style="display: none;">
+          555
+        </div>
+        <div class="clr"></div>
+        <div id="Learning6" style="display: none;">
+          666
+        </div>
+        <div class="clr"></div>
+        <div id="Learning7" style="display: none;">
+          777
+        </div>
+        <div class="clr"></div>
+        <div id="Learning8" style="display: none;">
+          888
+        </div>
+        <div class="clr"></div>
+        <div id="Learning9" style="display: none;">
+          999
+        </div>
+        <div class="clr"></div>
+
+
+
+
+
+
+        <div style="margin-top:10px;">
+          <div class="btn-t33">ชุดทดสอบความเข้าใจ</div>
+          <div class="text-team3">หลังจากได้ทำการศึกษาและเรียนรู้บทเรียนกันแล้ว เพื่อให้เราได้มีความเข้าใจมากยิ่งขึ้นการทำชุดทดสอบก็เป็นอีกแนวทางในการวัดความเข้าใจของเรา</div>
+        </div>
+
+        <div id="boxQ" class="boxQ">
+          <div id="WaitLoadQuiz" style="display:block;"><img src="./img/loading.gif" style="margin:30px auto;width:20px;"></div>
+          <div id="GotoQuiz" style="display: none;">
+            <div class="text-team"><font color="#ff0000"><b><u>คำเตือนก่อนทำแบบทดสอบ</u></b></font><br>หากคุณพร้อมแล้ว คลิกเพื่อเริ่มทำแบบทดสอบ<br>แบบทดสอบนี้จะใช้เวลาในการตอบข้อละ 30 วินาที<br>จะต้องตอบให้ครบทุกข้อ หากตอบผิดในข้อนั้น ๆ จะได้ 0 คะแนน<br>และหากออกจากหน้าเพจนี้ก่อนจบคำถามจะได้ 0 คะแนน<div id="HeaderName_Submit"></div></div>
+            <div class="clr" style="margin:-20px;"></div>
+          </div>
+          <div id="QuizDone" style="display: none;">
+            <div class="text-team" id="DisplayPoint">คุณทำชุดทดสอบนี้ไปแล้ว</div>
+          </div>
+        </div>
+
+
+        <div id="QuizGame" class="main-container" style="display: none;">
+          <div class="quiz-app">
+            <div class="info">
+              <div class="row-app">
+                <div class="category">Category : <span>เริ่มต้นการใช้งาน<span></div>
+                <div class="count"></div>
+              </div>
+            </div>
+            <div class="question-area">
+              <h2></h2>
+              <ul class="answers"></ul>
+              <button class="submit">Submit Answers</button>
+            </div>
+            <div class="pullets-parent">
+              <div class="row-app">
+                <div class="pullets"></div>
+                <div class="btn-t00 time-down"></div>
+                <div class="results"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="clr" style="height: 20px;"></div>
+        <div class="btn-t2" onclick="location.href='game3.html'">กลับไปที่เมนูย่อย</div>
+        <div class="btn-t0" onclick="location.href='home.html'">กลับหน้าหลัก</div>
+        <div class="clr" style="height: 30px;"></div>
+
+      </div>
+      </center>
+    </div> 
+  </section>
+
+<!--
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="width:100%;text-align:center;">
+        <div id="DisplayWB"></div>
+      </div>
+    </div>
+    <div class="clr" style="height:30px;"></div>
+  </div>
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:300px;width:100%;text-align:center;">
+        <div id="DisplayVDOLearning"></div>
+        <div class="clr" style="height:20px;"></div>
+      </div>
+    </div>
+    <div style="height:40px;"></div>
+  </div>
+
+
+  <div id="id02" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:300px;width:100%;text-align:center;">
+        <div id="DisplayGetPoint"></div>
+      </div>
+    </div>
+    <div style="height:40px;"></div>
+  </div>
+
+
+  <div id="id03" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:300px;width:100%;text-align:center;">
+        <div id="DisplayIntro"></div>
+      </div>
+    </div>
+    <div style="height:30px;"></div>
+  </div>
+-->
+
+
+<script src="./js/learning.js"></script>
+
+</body>
+</html>
