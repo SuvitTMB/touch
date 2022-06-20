@@ -1,0 +1,57 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+.wrapper {
+  margin: 0 auto;
+  width: 90%;
+  margin-top: 15px;
+}
+
+.bar {
+  position: relative;
+  width: 100%;
+  height: 35px;
+  background-color: #eee;
+  /*background: rgba(255, 255, 255, 0.8);*/
+  margin-bottom: 6px;
+  border-radius: 5px;
+}
+.bar .bar-info {
+  border-radius: 5px;
+  padding: 0.75rem;
+  background: #fd7473;
+  color: white;
+  width: 20%;
+  position: relative;
+  height: 35px;
+  transition: width 3.3s ease-in-out;
+}
+.bar .bar-info .percent {
+  float: right !important;
+}
+.percent { 
+  float: right !important;
+}
+.bar .bar-info.rsoc1 {
+  background: linear-gradient(#e4e400, #e4e400), #e4e400;
+}
+.bar .bar-info.rsoc2 {
+  background: linear-gradient(#18d75a, #18d75a), #18d75a;
+}
+.bar .bar-info.rsoc3 {
+  background: linear-gradient(#00b0f0, #00b0f0), #00b0f0;
+}
+.bar .bar-info.rsoc4 {
+  background: linear-gradient(#ff00ff, #ff00ff), #ff00ff;
+}
+.bar .bar-info.rsoc5 {
+  background: linear-gradient(#ffc000, #ffc000), #ffc000;
+}
+.bar .bar-info.rsoc6 {
+  background: linear-gradient(#0000ff, #0000ff), #0000ff;
+}
+.bar .bar-info.rsoc7 {
+  background: linear-gradient(#d60093, #d60093), #d60093;
+}
+.bar .bar-info.rsoc8 {
+  background: linear-gradient(#ff0000, #ff0000), #ff0000;
+}
